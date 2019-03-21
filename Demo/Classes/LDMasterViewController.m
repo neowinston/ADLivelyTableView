@@ -22,11 +22,6 @@
     }
     return self;
 }
-							
-- (void)dealloc {
-    [_objects release];
-    [super dealloc];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,7 +29,7 @@
     self.navigationItem.rightBarButtonItem = transitionButton;
     ADLivelyTableView * livelyTableView = (ADLivelyTableView *)self.tableView;
     livelyTableView.initialCellTransformBlock = ADLivelyTransformFan;
-    [transitionButton release];
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -48,7 +43,7 @@
                                                 destructiveButtonTitle:nil
                                                      otherButtonTitles:@"Fan", @"Curl", @"Fade", @"Helix", @"Wave", nil];
     [actionSheet showFromBarButtonItem:sender animated:YES];
-    [actionSheet release];
+
 }
 
 #pragma mark - UIActionSheetDelegate
@@ -75,10 +70,10 @@
     
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         UIView * backgroundView = [[UIView alloc] initWithFrame:cell.bounds];
         cell.backgroundView = backgroundView;
-        [backgroundView release];
+
     }
 
     cell.textLabel.text = [_objects objectAtIndex:indexPath.row];
