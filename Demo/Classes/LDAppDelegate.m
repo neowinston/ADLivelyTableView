@@ -19,7 +19,7 @@
     self.window.backgroundColor = [UIColor lightGrayColor];
     // Override point for customization after application launch.
 
-    LDMasterViewController *masterViewController = [[LDMasterViewController alloc] initWithNibName:@"LDMasterViewController2" bundle:nil];
+    LDMasterViewController *masterViewController = [[LDMasterViewController alloc] initWithNibName:@"LDMasterViewController" bundle:nil];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
