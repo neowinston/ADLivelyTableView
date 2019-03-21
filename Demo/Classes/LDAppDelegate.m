@@ -7,7 +7,6 @@
 //
 
 #import "LDAppDelegate.h"
-
 #import "LDMasterViewController.h"
 
 @implementation LDAppDelegate
@@ -15,19 +14,13 @@
 @synthesize window = _window;
 @synthesize navigationController = _navigationController;
 
-- (void)dealloc {
-    [_window release];
-    [_navigationController release];
-    [super dealloc];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor lightGrayColor];
     // Override point for customization after application launch.
 
-    LDMasterViewController *masterViewController = [[[LDMasterViewController alloc] initWithNibName:@"LDMasterViewController" bundle:nil] autorelease];
-    self.navigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
+    LDMasterViewController *masterViewController = [[LDMasterViewController alloc] initWithNibName:@"LDMasterViewController2" bundle:nil];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
